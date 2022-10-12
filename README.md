@@ -1,6 +1,6 @@
 <div align=center>
 
-
+</div>
 <img style="center;" src="./extras/banner_PyToys.gif">
 </div>
 	
