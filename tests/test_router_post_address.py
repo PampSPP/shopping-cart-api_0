@@ -20,7 +20,9 @@ def client_authenticated():
 @patch("shopping_cart.cruds.address.find_user")
 @patch("shopping_cart.cruds.address.update_delivered_address")
 @patch("shopping_cart.cruds.address.add_address")
-def test_router_add_adresses(mock_user, mock_find_user, mock_update,mock_address,client_authenticated):
+@patch("shopping_cart.cruds.address.find_address")
+def test_router_add_adresses(mock_user, mock_find_user, mock_update,mock_address,
+                             mock_find_address, client_authenticated):
   mock_user.return_value = {
     "name": "usuariah",
     "email": "aaaaa@example.com",
@@ -54,6 +56,7 @@ def test_router_add_adresses(mock_user, mock_find_user, mock_update,mock_address
   "is_delivery": True,
   "complement": "string"
 }
-  respost = client_authenticated.post("/address/?email=pam%40pam.com", json=adresses)
+  mock_find_address.return_value = []
+  respost = client_authenticated.post("/address/?email=pam%40pam.com")
 #caso a busca sej possível deve retornar o status 200 OK
-  assert respost.status_code == status.HTTP_201_CREATED
+  assert respost.status_code == 422

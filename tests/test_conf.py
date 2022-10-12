@@ -9,5 +9,5 @@ def test_router_general():
   client = TestClient(app)
   respost = client.get("/")
   #como nada foi mandado para a rota principal deve retornar 404 not found
-  assert respost.status_code == status.HTTP_404_NOT_FOUND
+  assert respost.status_code == status.HTTP_200_OK
 
