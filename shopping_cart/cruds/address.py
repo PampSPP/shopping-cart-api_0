@@ -30,7 +30,7 @@ async def find_addresses_by_email(email: EmailStr):
 
 async def find_address(email: EmailStr, address: AddressSchema):
     address_document = await db.address_db.find_one(
-        {"email": email, "address": address},
+        {"user.email": email, "address": address},
     )
     return address_document
 
@@ -64,3 +64,4 @@ async def update_delivered_automatically(email: EmailStr):
         {"user.email": email},
         {"$set" : {"address.0.is_delivery" : True}}
     )
+

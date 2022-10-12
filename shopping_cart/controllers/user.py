@@ -1,6 +1,8 @@
 from typing import List, Optional
+from fastapi import HTTPException, status
 from pydantic.networks import EmailStr
 import shopping_cart.cruds.user as user_crud
+from shopping_cart.cruds.cart import delete_cart, get_user_cart
 from shopping_cart.schemas.user import (
     PasswordUpdateSchema,
     UserResponse,
@@ -38,9 +40,7 @@ class UserService:
     @staticmethod
     async def get_user_by_email(email: str) -> Optional[UserSchema]:
         user = await db.user_db.find_one({"email": email})
-        return user
-                
-            
+        return user        
 
 
 async def validate_user(user: UserSchema, input_code: Optional[str] = None):
@@ -82,13 +82,32 @@ async def search_user_by_email(
 
 async def update_user_password(email: EmailStr, password_data: PasswordUpdateSchema):
 
+    user = await search_user_by_email(email)
+    
+    if verify_password(password_data.current_password, user["password"]):
+    
+        new_pass = get_password(password_data.new_password)
+
+        await user_crud.update_password(
+            email, new_pass
+        )
+        updated_user = await search_user_by_email(email)
+        return updated_user
+    raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Incorrect password")
+
+async def delete_user(email: EmailStr):
+
     await search_user_by_email(email)
 
-    password_to_update = password_data.dict()
-    await user_crud.update_password(
-        email, password_to_update
-    )
-    updated_user = await search_user_by_email(email)
-    return updated_user
+    cart = await get_user_cart(email)
+    if cart:
+        await delete_cart(email)
+
+    await user_crud.delete_user(email)
+    return {"message": "User has been successfully deleted"}
+
+
 
 
