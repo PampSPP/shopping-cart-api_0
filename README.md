@@ -117,9 +117,9 @@ uvicorn --reload main:app
 
 <a href="https://pytoys-api.herokuapp.com/docs#/" target="_blank"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" target="_blank" width="100" height="40"></a>
 
-<img style="left;" src="./extras/sw1.png">
+<img style="left;" src="./extras/sw3.png">
 
-<img style="left;" src="./extras/sw2.png">
+
 
 ## <img style="left;" src="./extras/dino_t.png">Banco de dados
 
