@@ -37,7 +37,8 @@ API com as seguintes funcionalidades:
 - Gerenciamento de carrinho de compras: Criação, inclusão/remoção de produtos e remoção do carrinho;
 - Gerenciamento de pedidos: Criação e buscas.
 
-######Opcionais:
+###### Opcionais:
+
 :heavy_check_mark: Remover um cliente;
 :heavy_check_mark: Remover um endereço;
 :heavy_check_mark: Remover um produto;
@@ -110,8 +111,11 @@ uvicorn --reload main:app
 
 <img style="center;" src="./extras/db.png">
 
-## Testes
+## <img style="left;" src="./extras/videogame.jpeg"> Testes
+Nossos testes atingiram a cobertura de **77%**.
+
 ```
+
 ---------- coverage: platform win32, python 3.10.7-final-0 -----------
 Name                                                        Stmts   Miss  Cover
 -------------------------------------------------------------------------------
