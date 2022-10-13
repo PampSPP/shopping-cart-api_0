@@ -29,7 +29,7 @@ Esse projeto tem como objetivo a criação de um serviço de carrinho de compras
 
 ## <img style="left;" src="./extras/cabeca.png"> Requisitos funcionais
 
-API com as seguintes funcionalidades:
+### API com as seguintes funcionalidades:
 
 - Gerenciamento de clientes: Cadastro, busca,  atualização de senha e remoção;
 - Gerenciamento de endereços: Cadastro, busca e remoção;
@@ -37,18 +37,28 @@ API com as seguintes funcionalidades:
 - Gerenciamento de carrinho de compras: Criação, inclusão/remoção de produtos e remoção do carrinho;
 - Gerenciamento de pedidos: Criação e buscas.
 
-###### Opcionais:
+### Opcionais:
 
 :heavy_check_mark: Remover um cliente;
+
 :heavy_check_mark: Remover um endereço;
+
 :heavy_check_mark: Remover um produto;
+
 :heavy_check_mark: Validar se a quantidade de itens está disponível em estoque;
+
 :heavy_check_mark: Após validar a quantidade de itens, reduzir do estoque a quantidade de itens adicionados no carrinho (Muito opcional);
+
 :heavy_check_mark: Consultar pedidos;
+
 :heavy_check_mark: Consultar os produtos e suas quantidades em pedidos;
+
 :heavy_check_mark: Consultar quantos pedidos os clientes possuem;
+
 :heavy_check_mark: Identificar o endereço de entrega;
+
 :heavy_check_mark: Associar um identificador ao carrinho de compras como sendo o número do pedido;
+
 :heavy_check_mark: Excluir carrinho do cliente.
 
 
@@ -88,7 +98,6 @@ Windows: venv\Scripts\activate.bat
 Linux: source venv/bin/activate
 ```
 
-Observação: Lembrar de trocar o ambiente dentro do VSCode
 
 4) Instalar as dependências
 ```
@@ -104,8 +113,13 @@ uvicorn --reload main:app
 
 ## <img style="left;" src="./extras/blocos_t.png"> Documentação Swagger
 
-><sup> Acesse nossa documentação aqui: </sup>
+><sup> Acesse nossa documentação aqui:</sup>
+
 <a href="https://pytoys-api.herokuapp.com/docs#/" target="_blank"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" target="_blank" width="100" height="40"></a>
+
+<img style="left;" src="./extras/sw1.png">
+
+<img style="left;" src="./extras/sw2.png">
 
 ## <img style="left;" src="./extras/dino_t.png">Banco de dados
 
